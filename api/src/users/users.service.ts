@@ -7,7 +7,7 @@ import { Repository } from 'typeorm';
 export class UsersService {
   constructor(
     @InjectRepository(User)
-    private usersRepository: Repository<User>
+    private usersRepository: Repository<User>,
   ) {}
 
   findAll(): Promise<User[]> {
@@ -23,13 +23,28 @@ export class UsersService {
   }
 
   async createUser() {
-    const user = await this.usersRepository.create({
-      firstName: 'Kyle',
-      lastName: 'Winkler',
-    })
+    const users = [
+      { firstName: 'Justin', lastName: 'Canavan' },
+      {
+        firstName: 'Steven',
+        lastName: 'Canavan',
+      },
+      {
+        firstName: 'Ariella',
+        lastName: 'Garfinkel',
+      },
+      {
+        firstName: 'Atif',
+        lastName: 'Hussaini',
+      },
+    ];
+    users.forEach((user) => {
+      this.usersRepository.create({
+        firstName: user.firstName,
+        lastName: user.lastName,
+      });
 
-    this.usersRepository.save(user)
-
-    console.log(user)
+      this.usersRepository.save(user);
+    });
   }
 }

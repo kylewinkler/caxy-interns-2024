@@ -13,7 +13,7 @@ export class UsersController {
 
   @Get('/create')
   createUser() {
-    console.log('check mic')
+    console.log('check mic');
     return this.usersService.createUser();
   }
 
@@ -21,6 +21,4 @@ export class UsersController {
   getUser(@Param('id') id): Promise<User> {
     return this.usersService.findOne(id);
   }
-
-
 }

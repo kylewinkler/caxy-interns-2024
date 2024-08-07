@@ -10,10 +10,10 @@ import { UsersModule } from './users/users.module';
     UsersModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '127.0.0.1', 
+      host: '127.0.0.1',
       port: 3306,
       username: 'root',
-      password: 'password',
+      password: 'root',
       database: 'caxy_interns_2024',
       entities: [User],
       synchronize: true,
